@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount ActionCable.server => '/cable'
       resources :users, only: [:index, :create, :show, :update, :destroy]
+      resources :rooms
+      resources :messages
+      resources :friendships
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       # resources :tasks, only: [:index, :show, :create, :update]
