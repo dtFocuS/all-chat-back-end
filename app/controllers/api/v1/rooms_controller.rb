@@ -3,7 +3,7 @@ class Api::V1::RoomsController < ApplicationController
 
     def index
         rooms = Room.all
-        render :json => rooms, status: :accepted
+        render json: rooms
     end
 
     def create

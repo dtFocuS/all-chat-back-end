@@ -7,16 +7,30 @@ class Api::V1::MessagesController < ApplicationController
 
     def create
         message = Message.new(message_params)
-        room = Room.find_by(message_params['room_id']) 
+        
+       
+
+        room = Room.find_by_id(message_params['room_id']) 
         if message.save
-            RoomsChannel.brodcast_to(room, {
+            # byebug
+            RoomsChannel.broadcast_to(room, {
                 room: RoomSerializer.new(room),
-                users: UserSerializer.new(room.users),
-                messages: MessageSerializer.new(room.messages)
+                # users: UserSerializer.new(room.users),
+                messages:  room.messages
 
             }) 
         end
-        render json: MessageSerializer.new(message)
+        render json: { message: MessageSerializer.new(message) }
+        # message = Message.new(message_params)
+        # room = Room.find(message_params[:room_id])
+        # if message.save
+        #     serialized_data = ActiveModelSerializers::Adapter::Json.new(
+        #         MessageSerializer.new(message)
+        #     ).serializable_hash
+        #     RoomsChannel.broadcast_to room, serialized_data
+        #     head :ok
+            # byebug
+        # end
 
     end
 

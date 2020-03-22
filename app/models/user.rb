@@ -3,6 +3,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: { case_sensitive: false }
     has_many :messages
     has_many :rooms
+    # has_one_attached :avatar
     has_many :friendships, dependent: :destroy  
     has_many :friends, through: :friendships
     has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'

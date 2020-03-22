@@ -1,13 +1,13 @@
 class RoomsChannel < ApplicationCable::Channel
   def subscribed
-    byebug
+    # byebug
     # stream_from "some_channel"
     @room = Room.find_by(id: params[:room])
     stream_for @room
   end
 
   def received(data)
-    RoomsChannel.broadcast_to(@room, {room: @room, users: @room.users, messages: @room.messages})
+    RoomsChannel.broadcast_to(@room, {room: @room, messages: @room.messages})
 
   end
 
