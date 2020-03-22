@@ -1,5 +1,6 @@
 class RoomsChannel < ApplicationCable::Channel
   def subscribed
+    byebug
     # stream_from "some_channel"
     @room = Room.find_by(id: params[:room])
     stream_for @room
