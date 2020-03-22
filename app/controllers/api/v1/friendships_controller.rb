@@ -14,9 +14,10 @@ class Api::V1::FriendshipsController < ApplicationController
         @friendship = Friendship.create(friendship_params)
         if @friendship.valid? #individual e.g. "Add friend" link
           # puts current_user_id
+          # friendship = Friendship.find_by(@friendship.id)
           # byebug
-          @mutual = Friendship.create({ friendship: { user_id: @friendship.friend_id, friend_id: @friendship.user_id}})
-          
+          @mutual = Friendship.create({ user_id: @friendship.friend_id, friend_id: @friendship.user_id})
+          # @new_friendships = Friendship.create_reciprocal_for_ids(current_user_id, params[:friend_id])
           # @new_friendships = Friendship.create_reciprocal_for_ids(current_user_id, params[:friend_id])
           
           render json: [@friendship, @mutual]
@@ -32,6 +33,11 @@ class Api::V1::FriendshipsController < ApplicationController
         Friendship.destroy_reciprocal_for_ids(current_user_id, params[:friend_id])
         # redirect_to(request.referer)
     end
+
+   
+
+
+
 
     private
     def friendship_params

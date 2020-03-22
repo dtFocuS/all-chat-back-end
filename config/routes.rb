@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :friendships
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      # get 'my_friends/:current_user_id', to: 'friendships#my_friends'
       # resources :tasks, only: [:index, :show, :create, :update]
       # resources :tasks, only: [:index, :create, :show, :update, :destroy]
       # resources :bids, only: [:index, :create, :show, :update, :destroy]
