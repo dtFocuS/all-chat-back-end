@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
     has_many :messages
-    has_many :users, through: :messages
+    belongs_to :user
+    belongs_to :friend, class_name: 'User'
+    # has_many :users, through: :messages
 end

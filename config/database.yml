@@ -31,10 +31,10 @@ development:
   # the same name as the operating system user that initialized the database.
 
 
-  username: 
+  username: dtfocus
 
   # The password associated with the postgres role (username).
-  password: 
+  password: UWyamapi23
 
 
   # Connect on a TCP socket. Omitted by default since the client uses a

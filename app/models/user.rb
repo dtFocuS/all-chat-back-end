@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
     has_many :messages
+    has_many :rooms
     has_many :friendships, dependent: :destroy  
     has_many :friends, through: :friendships
     has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'

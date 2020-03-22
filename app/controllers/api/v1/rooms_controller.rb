@@ -17,10 +17,15 @@ class Api::V1::RoomsController < ApplicationController
 
     end
 
+    def show
+        room = Room.find(params[:id])
+        render json: { room: RoomSerializer.new(room) }
+    end
+
     private
 
     def room_params
-        params.require(:room).permit(:name)
+        params.require(:room).permit(:name, :user_id, :friend_id)
     end
 
 
