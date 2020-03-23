@@ -1,5 +1,5 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user_id, :friend_id, :messages
+  attributes :id, :users, :messages
  
   # has_many :messages
   # has_many :users
