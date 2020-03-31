@@ -15,5 +15,5 @@ class User < ApplicationRecord
 
     # def pending_friends
     #     friends.select{ |friend| !friend.friends.include?(self) }  
-    end
+    # end
 end
