@@ -6,7 +6,7 @@ class Api::V1::UserRoomsController < ApplicationController
     end
 
     def create
-        user_room = UserRoom.create(room_params)
+        user_room = UserRoom.create(user_room_params)
         if user_room.valid?
             render json: { user_room: UserRoomSerializer.new(user_room) }, status: :created
         else

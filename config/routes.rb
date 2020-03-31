@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       mount ActionCable.server => '/cable'
       resources :users, only: [:index, :create, :show, :update, :destroy]
       resources :rooms
+      resources :user_rooms
       resources :messages
       resources :friendships
       post '/login', to: 'auth#create'

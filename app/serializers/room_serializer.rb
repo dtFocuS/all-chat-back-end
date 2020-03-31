@@ -1,5 +1,6 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :users, :messages
+  # include FastJsonapi::ObjectSerializer
+  attributes :id, :name, :messages, :users
  
   # has_many :messages
   # has_many :users

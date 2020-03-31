@@ -15,7 +15,7 @@ class Api::V1::MessagesController < ApplicationController
             # byebug
             RoomsChannel.broadcast_to(room, {
                 room: RoomSerializer.new(room),
-                # users: UserSerializer.new(room.users),
+                users: room.users,
                 messages:  room.messages
 
             }) 
