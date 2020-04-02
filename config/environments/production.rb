@@ -34,7 +34,7 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain.
   config.action_cable.mount_path = '/cable'
-  config.action_cable.url = 'ws://all-chat-backend.herokuapp.com/cable'
+  config.action_cable.url = 'wss://all-chat-backend.herokuapp.com/cable'
   config.action_cable.allowed_request_origins = ['https://all-chat-together.herokuapp.com/', 'http://all-chat-together.herokuapp.com/']
   # config.action_cable.allowed_request_origins = [ /http:\/\/localhost.*/ ]
 
